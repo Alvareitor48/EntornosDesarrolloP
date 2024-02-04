@@ -1,16 +1,23 @@
 import java.util.*;
 public class Prueba{
     public static void main(String[] args) {
-        try {
-			while(true) {
-				System.out.println(fecha());
-				Thread.sleep(1000);
-			}
-		}catch (Exception e) {
+	    Usuario[] arr = creador();
+     	for (int i = 0; i < arr.length; i++) {
+		System.out.println(arr[i]);
+	}
+    }
+   public Usuario[] creador(int index){
+	Scanner sc = new Scanner(System.in);
+	Usuario[] arrayUsuarios = new Usuario[index];
+		for (int i = 0; i < arrayUsuarios.length; i++) {
+			System.out.println("Dime el nombre "+(i+1));
+			setNombre(sc.nextLine());
+			System.out.println("Dime el apellido "+(i+1));
+			setApellidos(sc.nextLine());
+			System.out.println("Dime el email "+(i+1));
+			setEmail(sc.nextLine());
 		}
-    }
-    public static String fecha(){
-        Calendar date = Calendar.getInstance();
-		return date.get(Calendar.DAY_OF_MONTH)+"/"+(date.get(Calendar.MONTH)+1)+"/"+date.get(Calendar.YEAR)+"  "+date.get(Calendar.HOUR)+"/"+(date.get(Calendar.MINUTE)+1)+"/"+date.get(Calendar.SECOND);
-    }
+	sc.close();
+	return arrayUsuarios;
+	}
 }
